@@ -5,6 +5,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import backgroundH from "../images/1744.gif"
 import  micGif from "../images/YdBO.gif"
+
+import FaceAuthentication from './FaceAuthentication';
 // others
 export const notify = (inputData) => toast(`${inputData} !`);
 
@@ -215,12 +217,8 @@ const Login = () => {
             </div>
 
             <div className={`${OneF ? '' : ' cursor-not-allowed'}   bg-fixed flex flex-col justify-center items-center content-center h-screen w-1/2 border-double border-8 border-red-900 text-white text-7xl`} >
-                <div>
-                    <img src={micGif    }></img>
 
-                </div>
-                Voice Regognition 
-                <span>Comes in here!</span>
+                <FaceAuthentication/>
                 
             </div>
             <ToastContainer />
