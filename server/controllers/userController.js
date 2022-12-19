@@ -38,7 +38,7 @@ const registerUser = async (req, res) => {
         console.log("bye")
 
         delete newUser.passWord;
-        return res.status(201).json({ status: true, newUser });
+        return res.status(201).json({ status: true, newUser , msg:"User Created" });
     } catch (err) {
         res.status(400).json({
             msg: "error occurs please try again",

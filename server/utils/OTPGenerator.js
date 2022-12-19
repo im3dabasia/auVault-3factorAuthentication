@@ -1,3 +1,4 @@
+require('dotenv'). config() 
 var nodemailer = require('nodemailer');
 
 let OTP = ""
@@ -7,18 +8,18 @@ const OTPGenerator = async (userEmail) => {
         host: 'smtp.zoho.in',
         port: 587,
         auth: {
-            user: 'im3dabasia@zohomail.in',
-            pass: 'S6PdAKPfVurj'
+            user: process.env.SENDER_EMAIL,
+            pass: process.env.SENDER_PASSWORD
         }
     });
     OTP = Math.floor(100000 + Math.random() * 900000)
     var mailOptions = {
-        from: 'im3dabasia@zohomail.in',
+        from: process.env.SENDER_EMAIL,
         to: userEmail,
         subject: 'ISP070 CYBERSECURITY OTP',
         text: OTP + ""
-
     };
+    
     console.log(mailOptions)
     const sender = await transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
