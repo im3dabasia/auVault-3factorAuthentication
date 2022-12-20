@@ -3,7 +3,7 @@ require("dotenv").config();
 var nodemailer = require('nodemailer');
 const bcrypt = require("bcryptjs");
 
-const {  OTPGenerator , getOTP } = require('../utils/OTPGenerator')
+const { OTPGenerator, getOTP } = require('../utils/OTPGenerator')
 
 // global variables
 let userEmail = ""
@@ -38,7 +38,7 @@ const registerUser = async (req, res) => {
         console.log("bye")
 
         delete newUser.passWord;
-        return res.status(201).json({ status: true, newUser , msg:"User Created" });
+        return res.status(201).json({ status: true, newUser, msg: "User Created" });
     } catch (err) {
         res.status(400).json({
             msg: "error occurs please try again",
@@ -84,7 +84,7 @@ const verifyOTP = async (req, res) => {
     let { otp } = await req.body;
     const otpSent = getOTP()
     const otpRecieved = otp
-    console.log(typeof(otpSent) , "---" , typeof(otpRecieved))
+    console.log(typeof (otpSent), "---", typeof (otpRecieved))
     console.log(req.body)
     if (otpRecieved.localeCompare(otpSent)) {
         return res.json({ msg: "Wrong OTP    Try Again", status: false });
@@ -92,7 +92,16 @@ const verifyOTP = async (req, res) => {
         return res.json({ status: true, msg: "OTP Entered is Correct" });
     }
 };
+const getUserDetails = async (req, res) => {
+    console.log("hello")
+    if(userEmail.length != null){
+        return res.json({email: userEmail});
 
-module.exports = { registerUser, loginUser, userEmail, generateOTP, verifyOTP };
+    }
+    return res.json({email: ""});
+    
+}
+
+module.exports = { registerUser, loginUser, userEmail, generateOTP, verifyOTP, getUserDetails };
 
 

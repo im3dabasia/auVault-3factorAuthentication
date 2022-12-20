@@ -1,11 +1,11 @@
-import {React, useState} from 'react'
+import { React, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 // others
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import backgroundH from "../images/1744.gif"
-import  micGif from "../images/YdBO.gif"
+// import micGif from "../images/YdBO.gif"
 // others
 export const notify = (inputData) => toast(`${inputData} !`);
 
@@ -36,7 +36,7 @@ const Register = () => {
             if (data.status === true) {
                 localStorage.setItem(
                     "user",
-                    JSON.stringify(data.userData    )
+                    JSON.stringify(data.userData)
                 );
                 setOneF(true);
                 notify(data.msg);
@@ -125,15 +125,16 @@ const Register = () => {
 
     return (
         <div style={myStyle} className='bg-fixed flex flex-row justify-center items-center content-center h-full w-full'>
-            <div className='bg-fixed flex flex-col justify-center items-center content-center h-full w-1/2 '>
-
+            <div className={`${OneF ? '' : ' cursor-not-allowed'}   bg-fixed flex flex-col justify-center items-center content-center h-screen  border-double border-8 border-red-900 text-white text-7xl`} >
+            </div>
+            <div className='bg-fixed flex flex-row  justify-center items-center content-center h-full w-1/2 '>
                 <div className={` ${OneF ? 'bg-green-800' : 'bg-green-900'} bg-fixed flex flex-col justify-center items-center content-center h-1/2 w-full border-double border-8 border-red-600`}>
                     <div className='bg-fixed flex flex-col justify-center items-center content-center h-1/2 w-1/2' >
                         <h1 className='font-medium leading-tight text-5xl mt-0 mb-8 text-neutral-50'>User Register </h1>
                         <form onSubmit={RegisterSubmit} >
                             <div className='flex  justify-center content-center'>
                                 <div className="mb-3 xl:w-96">
-                                <label forhtml="userName" className="form-label inline-block mb-2 text-neutral-50"
+                                    <label forhtml="userName" className="form-label inline-block mb-2 text-neutral-50"
                                     >User Name
                                     </label>
                                     <input
@@ -203,9 +204,6 @@ const Register = () => {
                                         <button class={`bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-2 border-b-4 border-green-700 hover:border-green-500 rounded mt-4 w-1/3 mx-2 ${OneF ? '' : ' cursor-not-allowed'}`} onClick={generateOTP}>
                                             Generate OTP
                                         </button>
-                                        {/* <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded mt-4 w-1/2 mx-2" onClick={verifyOTP}>
-                                        Verify
-                                    </button> */}
                                         <div className="my-6 xl:w-96">
                                             <input
                                                 type="submit"
@@ -225,14 +223,8 @@ const Register = () => {
 
                 </div>
             </div>
+            <div className={`${OneF ? '' : ' cursor-not-allowed'}   bg-fixed flex flex-col justify-center items-center content-center h-screen  border-double border-8 border-red-900 text-white text-7xl`} >
 
-            <div className={`${OneF ? '' : ' cursor-not-allowed'}   bg-fixed flex flex-col justify-center items-center content-center h-screen w-1/2 border-double border-8 border-red-900 text-white text-7xl`} >
-                <div>
-                    <img src={micGif}></img>
-
-                </div>
-                Voice Regognition
-                <span>Comes in here!</span>
 
             </div>
             <ToastContainer />
