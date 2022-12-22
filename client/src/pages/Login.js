@@ -3,7 +3,9 @@ import axios from 'axios'
 import { useNavigate, useHistory } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import backgroundH from "../images/1744.gif"
+import backgroundH from "../images/new-bg.gif"
+import eshaanProfileImage from "../images/new-bg.gif"
+
 
 // others
 export const notify = (inputData) => toast(`${inputData} !`);
@@ -121,8 +123,7 @@ const Login = () => {
     const myStyle = {
         backgroundImage: "url(" + backgroundH + ")",
         backgroundSize: "cover",
-        // height: "100vh",
-        // opacity: 0.9
+
     }
 
     return (
@@ -135,7 +136,7 @@ const Login = () => {
 
                 <div className={` ${OneF ? 'bg-green-800' : 'bg-green-900'} bg-fixed flex flex-col justify-center items-center content-center h-1/2 w-full border-double border-8 border-red-600`}>
                     <div className='bg-fixed flex flex-col justify-center items-center content-center h-1/2 w-1/2' >
-                        <h1 className='font-medium leading-tight text-5xl mt-0 mb-8 text-neutral-50 w-full'>USER LOGIN </h1>
+                        <h1 className='font-medium leading-tight text-5xl mt-0 mb-8 text-neutral-50 w-full'> Login </h1>
                         <form onSubmit={loginSubmit} >
                             <div className='flex  justify-center content-center'>
                                 <div className="mb-3 xl:w-96">
@@ -176,9 +177,9 @@ const Login = () => {
                     </div>
 
                 </div>
-                <div className={`${OneF ? 'bg-zinc-800' : 'bg-red-900'} ${OneF ? '' : ' cursor-not-allowed'} my-10 bg-fixed flex flex-col justify-center items-center content-center h-1/2 w-full border-double border-8 border-red-800 ${OneF ? 'blur-none ' : 'blur-lg'} `}>
+                <div className={`${OneF ? 'bg-zinc-800' : 'bg-red-700'} ${OneF ? '' : ' cursor-not-allowed'} my-10 bg-fixed flex flex-col justify-center items-center content-center h-1/2 w-full border-double border-8 border-red-800 ${OneF ? 'blur-none ' : 'blur-sm'} `}>
                     <div className='bg-fixed flex flex-col justify-center items-center content-center h-1/2 w-1/2' >
-                        <h1 className='font-medium leading-tight text-5xl mt-0 mb-8 text-white'>Authenticate OTP </h1>
+                        <h1 className='font-medium leading-tight text-5xl mt-0 mb-8 text-white'>Enter OTP </h1>
                         <form onSubmit={verifyOTP}>
                             <div className='flex  justify-center content-center' >
                                 <div className="mb-3 xl:w-96">

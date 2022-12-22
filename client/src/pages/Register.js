@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 // others
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import backgroundH from "../images/1744.gif"
+import backgroundH from "../images/new-bg.gif"
 // import micGif from "../images/YdBO.gif"
 // others
 export const notify = (inputData) => toast(`${inputData} !`);
@@ -102,6 +102,7 @@ const Register = () => {
             if (data.status === true) {
                 setTwoF(true);
                 notify(data.msg);
+                window.location.replace("http://localhost:5173/")
 
                 // navigate("/vault");
             }

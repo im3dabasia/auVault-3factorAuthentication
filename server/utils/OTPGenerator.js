@@ -17,7 +17,7 @@ const OTPGenerator = async (userEmail) => {
         from: process.env.SENDER_EMAIL,
         to: userEmail,
         subject: 'ISP070 CYBERSECURITY OTP',
-        text: OTP + ""
+        text: "Your OTP for auVault is:" + OTP + "." + "Thanks for logging in with us!"
     };
     
     console.log(mailOptions)
